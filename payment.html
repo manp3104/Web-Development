@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <title>Kendo</title>
+	
+  <link rel="shortcut icon" href="images/Dragonball-Goku.ico">		
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style type="text/css">
+  	#main-body-content {
+  		padding-top: 150px;
+  		padding-bottom: 50px;
+  	}
+    #procedure {
+      display: -webkit-inline-box;
+    }
+    #procedure #welcome #text,
+    #procedure #delivery #text,
+    #procedure #review #text {
+      color: #068d35;
+    }
+    #procedure #payment #text {
+      color: #F99C1C;
+    }
+    #procedure > hr {
+      border: 3px solid #068d35;
+      width: 160px;
+      margin: 27px 10px;
+    }
+    .fa-stack {
+      font-size: 27px;
+    }
+    #form {
+      box-shadow: 1px 1px 5px darkgrey;
+    }
+    #form h3,
+    #order-summary h3 {
+      border-bottom: 1px solid darkgray;
+      padding-bottom: 16px;
+      margin-bottom: 1px;
+      padding-top: 20px;
+    }
+    #form #form-body {
+      display: -webkit-box;
+    }
+    #form #form-body #form-button {
+      margin-top: -1px;
+    }
+    #form #form-body #form-button ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 210px;
+      border-right: 1px solid darkgray;
+    }
+    #form #form-body #form-button ul li {
+      text-align: left;
+      padding-top: 13px;
+      padding-bottom: 10px;
+    }
+    #form #form-body #form-button ul li a {
+      display: block;
+      text-decoration: none;
+      padding: 15px 35px;
+      color: darkslategray;
+    }
+    #form #form-body #form-button ul li a:hover {
+      background-color: rgba(51, 122, 183, 0.6);
+    }
+    #form #form-body #form-button ul li a.active,
+    #form #form-body #form-button ul li a.focus {
+      border-left: 5px solid #447cbf;
+      /*border-right: 1px solid gray;*/
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+      padding: 14px 30px;
+    } 
+    #form #form-body #form-button-body {
+      width: 600px;
+    }
+    #form #form-body #form-button-body #debit-card {
+      padding: 15px;
+    }
+    #debit-card form .form-group .col-form-label {
+      margin-top: 9px;
+      font-weight: 100;
+      color: black;
+    }
+    #debit-card form .form-group input[type="text"] {
+      border-radius: 0;
+    }
+    #debit-card form .form-group {
+      margin-bottom: 30px;
+    }
+    #order-summary {
+      box-shadow: 1px 1px 5px darkgray;
+    }
+    #order-summary #product-body {
+      text-align: left;
+      padding: 12px 35px;
+    }
+    #order-summary #product-body p {
+      color: #447cbf;
+    }
+    .table {
+        border-bottom:0px !important;
+    }
+    .table td {
+        border: 1px !important;
+    }
+    .fixed-table-container {
+        border:0px !important;
+    }
+
+    .foo {
+      border: 1px solid red;
+      height: 15px;
+      width: 15px;
+    }
+    .colr {
+      background-color: red;
+    }
+
+  </style>
+
+
+</head>
+<body>
+
+<!-- header begins -->
+
+  <nav class="navbar navbar-toggleable-md navbar-light navbar-fixed-top bg-faded">
+    <div class="container-fluid" id="top-head">
+    <div class="top-bar">
+      <div class="logo-image">
+        <a href="#">
+         <!-- <img src="images/KendoEdit1.jpg"> -->
+         <img src="images/KendoEdit1.jpg"
+            data-src-600px = "images/KendoEdit1-600px.jpg"
+            data-src-800px = "images/KendoEdit1-800px.jpg"
+            alt="">
+        </a>  
+      </div>
+    <div class="left-top">  
+      <div class="search-bar">
+        <form class="form-inline my-2 my-lg-0" method="get" action="search_results.html">
+          <div class="input-group">
+            <input type="text" name="search" class="form-control mr-sm-2" placeholder="Search for anything" aria-describedby="search-addon">
+            <span class="input-group-addon" type="submit" id="search-addon"><i class="fa fa-search" aria-hidden="true" style="color: #a99191;"></i></span>
+          </div> 
+        </form>
+      </div>
+      <div class="cart-btn btn-group" data-toggle="buttons">
+        <label class="btn btn-default active">
+          <input type="checkbox" checked autocomplete="off" name=""><i class="fa fa-shopping-cart"></i>&nbsp;Cart
+        </label>
+       <!-- <button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart"></i>&nbsp;Cart</button> -->
+        <label class="btn btn-default">
+          <input type="checkbox" autocomplete="off" name="noOfItems">0
+        </label>
+      </div>
+    </div>  
+    </div>  
+
+    <!--
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="col-md-5">
+            <div class="logo-image">
+              <img src="images/KendoEdit1.jpg"> 
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="row" style="margin-top: 5%;">
+            	<div class="col-md-3">
+        			  <div id="cart-btn">
+        			    <button class="btn btn-default" ><span class="glyphicon glyphicon-shopping-cart"></span> Cart &nbsp;<span class="badge" style="border-radius: 2px;">8</span></button>
+        			  </div>
+            	</div>
+            	<div class="col-md-9">
+            	  <form class="form-inline" method="get" action="search.php">
+    				      <div id="search-bar" class="input-group" style="width: 90%;">
+    				        <input type="text" class="form-control" size="60" name="search" placeholder="Search for anything" aria-describedby="search-btn" required>
+                    <span class="input-group-addon glyphicon glyphicon-search" id="search-btn"></span> 
+    				      </div>	
+  			        </form>	
+            	</div>
+            </div>		
+          </div>
+        </div>  
+      </div>	   
+      -->
+
+      <div class="navbar-header">
+        <!--<button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+      </div>
+      <div class="collapse navbar-collapse" id="nav-menu">
+        <ul class="nav navbar-nav navbar-right"> 
+          <li class="nav-item">
+            <a href="index.php" class="btn btn-default">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.php" class="btn btn-default">Contact</a>
+          </li>	
+          <li class="nav-item">
+            <a href="about" class="btn btn-default">About Us</a>
+          </li>
+          <li class="nav-item">
+            <div class="popover-markup">
+              <a href="#" class="trigger btn btn-default" id="loginbtn" data-placement="bottom">Login</a>
+              <form id="loginform">
+                <div class="head hide">Login to your account</div>
+                <div class="content hide">
+                  <div class="form-group">
+                    <label id="uname" for="username">Email ID</label>
+                    <input type="email" class="form-control" id="username" name="emailid" placeholder="Email id">
+                  </div>
+                  <div class="form-group">
+                    <label id="pwd" for="pswd">Password</label>
+                    <input type="password" class="form-control" id="pswd" placeholder="*****" name="pswd">
+                  </div>
+                  <p>
+                    <a>Forgot Password?</a>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </p>
+                </div>
+              </form>  
+            </div> 
+          </li>
+          <li class="nav-item" style="margin-right: 0;">
+            <div class="popover-markup">
+              <a href="#" class="trigger btn btn-default" id="signupbtn" data-placement="bottom">Signup</a>
+              <form id="signupform">
+                <div class="head hide" style="margin-bottom: 2%;">
+                  <p>Make retailing effortless</p>
+                  <p style="margin-bottom: -3%;">Sign up now</p>
+                </div>
+                <div class="content hide">
+                  <div class="form-group">
+                    <label for="fullname">Name</label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter full name"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="emailid">Email ID</label>
+                    <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email id">
+                  </div>
+                  <div class="form-group">
+                    <label for="contact">Contact Number</label>
+                    <input type="number" class="form-control" id="contact" name="contact" placeholder="Phone number">
+                  </div>
+                  <div class="form-group">
+                    <label for="pswd">Password</label>
+                    <input type="password" class="form-control" id="pswd" name="pswd" placeholder="*****">
+                  </div>
+                  <fieldset class="form-group">
+                    <p>User type:</p>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="usertype" id="retailer" value="Retailer" checked>
+                        Retailer
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="usertype" id="seller" value="Seller">Seller
+                      </label>
+                    </div>
+                  </fieldset>
+                  <p>
+                    <button type="submit" class="btn btn-primary" id="signup" name="signup" aria-describedby="btntext">Sign Up</button>
+                    <small id="btntext" class="form-text text-muted" style="margin-left: 10%;">It's free!</small>
+                  </p>  
+                </div>
+              </form>
+            </div>  
+          </li>
+
+            <script type="text/javascript">
+              $(document).ready(function(){
+                $('.popover-markup>.trigger').popover({
+                  html: true,
+                  title: function() {
+                    return $(this).parent().find('.head').html();
+                  },
+                  content: function() {
+                    return $(this).parent().find('.content').html();
+                  }
+                });
+                $('.popover-markup>.trigger').on('click',function(e) {
+                  $('.popover-markup>.trigger').not(this).popover('hide');
+                });
+              });
+            </script>
+
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+  
+<!-- header ends -->
+
+
+<div class="container-fluid text-center" id="main-body-content">	
+
+<!-- steps tracking begins -->
+
+  <div id="procedure">
+    <div id="welcome">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle fa-stack-2x" style="color: #068d35;"></i>
+        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+      </span>
+      <p class="text-center" id="text">Welcome</p>
+    </div>
+    <hr>
+    <div id="delivery">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle fa-stack-2x" style="color: #068d35;"></i>
+        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+      </span>
+      <p class="text-center" id="text">Delivery</p>
+    </div>
+    <hr>
+    <div id="review">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle fa-stack-2x" style="color: #068d35;"></i>
+        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+      </span>
+      <p class="text-center" id="text">Review</p>
+    </div>
+    <hr>
+    <div id="payment">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle-thin fa-stack-2x" style="color: #F99C1C;"></i>
+        <i class="fa fa-circle fa-stack-1x fa-inverse" style="color: #F99C1C;"></i>
+      </span>
+      <p class="text-center" id="text">Payment</p>
+    </div>
+  </div>
+
+<!-- steps tracking ends -->
+
+<!-- payment form begins -->
+
+  <div class="row" style="margin-top: 60px;">
+    <div class="col-md-8" style="padding-left: 135px;">
+      <div id="form">
+        <h3>Secure Payment</h3>
+        <div id="form-body">
+          <div id="form-button">
+            <ul>
+              <li><a class="Credit-Card" href="#credit-card">Credit Card</a></li>
+              <li><a class="Debit-Card active" href="#debit-card">Debit Card</a></li>
+              <li><a class="Net-Banking" href="#net-banking">Net Banking</a></li>
+              <li><a class="C-O-D" href="#cod">Cash On Delivery</a></li>
+            </ul>
+          </div>
+          <div id="form-button-body">
+            <!-- debit card payment begins -->
+
+            <div id="debit-card">
+              <form>
+                <div class="form-group row">
+                  <label for="card-input" class="col-md-3 col-form-label">Card Number</label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" id="card-input" name="card-number" placeholder="Card number">
+                  </div>  
+                </div>
+                <div class="form-group row">
+                  <label for="expiry-date" class="col-md-3 col-form-label">Expiry Date</label>
+                  <div class="col-md-9">  
+                    <input type="month" class="form-control" id="expiry-date" name="expiry-date" style="border-radius: 0; width: 175px;">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="cvv-num" class="col-md-3 col-form-label">CVV Number</label>
+                  <div class="col-md-9 text-left">    
+                    <input type="number" id="cvv-num" name="cvv-num" placeholder="CVV No." style="padding: 4px 10px; font-size: 13px;">
+                  </div>
+                </div>
+                <p style="color: #447cbf; text-align: -webkit-left;">
+                  <i class="fa fa-shield fa-2x" aria-hidden="true"></i>
+                  <small>&nbsp;100% payment protection</small>
+                  <button type="submit" class="btn btn-primary pay" style="border-radius: 0; margin-left: 85px; padding: 6px 30px;">Pay</button>
+                </p>
+              </form>
+            </div>
+
+    <!-- debit card payment ends -->
+	
+		<script type="text/javascript">
+		
+			$(document).ready(function() {
+			
+				$('.pay').click(function() {
+					var value = $('#card-input').val();
+					// takes the form field value and returns true on valid number
+					function valid_credit_card(value) {
+					  // accept only digits, dashes or spaces
+						if (/[^0-9-\s]+/.test(value)) return false;
+
+						// The Luhn Algorithm. It's so pretty.
+						var nCheck = 0, nDigit = 0, bEven = false;
+						value = value.replace(/\D/g, "");
+
+						for (var n = value.length - 1; n >= 0; n--) {
+							var cDigit = value.charAt(n),
+								  nDigit = parseInt(cDigit, 10);
+
+							if (bEven) {
+								if ((nDigit *= 2) > 9) nDigit -= 9;
+							}
+
+							nCheck += nDigit;
+							bEven = !bEven;
+						}
+
+						return (nCheck % 10) == 0;
+					}
+					
+				});
+			
+			});
+		
+		</script>
+	
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.Credit-Card').click(function() {
+        $('#debit-card').hide(400);
+        $('#net-banking').hide(400);
+        $('#cod').hide(400);
+        $('#credit-card').show();
+
+        $('.Credit-Card').css('border-left','5px solid #447cbf');
+        $('.Credit-Card').css('border-top', '1px solid gray');
+        $('.Credit-Card').css('border-bottom', '1px solid gray');
+        $('.Credit-Card').css('padding', '14px 30px');
+
+        $('.Debit-Card').css('border','none');
+        $('.Debit-Card').css('padding', '15px 35px');
+
+        $('.Net-Banking').css('border','none');
+        $('.Net-Banking').css('padding', '15px 35px');
+
+        $('.C-O-D').css('border','none');
+        $('.C-O-D').css('padding', '15px 35px');
+
+      });
+      $('.Debit-Card').click(function() {
+        $('#debit-card').show(400);
+        $('#net-banking').hide(400);
+        $('#cod').hide(400);
+        $('#credit-card').hide(400);
+
+        $('.Debit-Card').css('border-left','5px solid #447cbf');
+        $('.Debit-Card').css('border-top', '1px solid gray');
+        $('.Debit-Card').css('border-bottom', '1px solid gray');
+        $('.Debit-Card').css('padding', '14px 30px');
+
+        $('.Credit-Card').css('border','none');
+        $('.Credit-Card').css('padding', '15px 35px');
+
+        $('.Net-Banking').css('border','none');
+        $('.Net-Banking').css('padding', '15px 35px');
+
+        $('.C-O-D').css('border','none');
+        $('.C-O-D').css('padding', '15px 35px');
+
+      });
+      $('.Net-Banking').click(function() {
+        $('#debit-card').hide(400);
+        $('#net-banking').show(400);
+        $('#cod').hide(400);
+        $('#credit-card').hide(400);
+
+        $('.Net-Banking').css('border-left','5px solid #447cbf');
+        $('.Net-Banking').css('border-top', '1px solid gray');
+        $('.Net-Banking').css('border-bottom', '1px solid gray');
+        $('.Net-Banking').css('padding', '14px 30px');
+
+        $('.Credit-Card').css('border','none');
+        $('.Credit-Card').css('padding', '15px 35px');
+
+        $('.Debit-Card').css('border','none');
+        $('.Debit-Card').css('padding', '15px 35px');
+
+        $('.C-O-D').css('border','none');
+        $('.C-O-D').css('padding', '15px 35px');
+
+      });
+      $('.C-O-D').click(function() {
+        $('#debit-card').hide(400);
+        $('#net-banking').hide(400);
+        $('#cod').show(400);
+        $('#credit-card').hide(400);
+
+        $('.C-O-D').css('border-left','5px solid #447cbf');
+        $('.C-O-D').css('border-top', '1px solid gray');
+        $('.C-O-D').css('border-bottom', '1px solid gray');
+        $('.C-O-D').css('padding', '14px 30px');
+
+        $('.Credit-Card').css('border','none');
+        $('.Credit-Card').css('padding', '15px 35px');
+
+        $('.Net-Banking').css('border','none');
+        $('.Net-Banking').css('padding', '15px 35px');
+
+        $('.Debit-Card').css('border','none');
+        $('.Debit-Card').css('padding', '15px 35px');
+      });
+    });
+  </script>  
+    
+
+
+    <div class="col-md-4" style="padding-right: 135px;">
+      <div id="order-summary">
+        <h3 class="text-center">Order Summary</h3>
+        <div id="product-body">
+          <h4>Sayitloud Men's Round Neck Printed T-Shirt</h4>
+          <p>Sayitloud Corporation</p>
+          <table class="table" style="width: 60%;">
+            <tbody>
+              <tr>
+                <td>Size:</td>
+                <td>S</td>
+              </tr>
+              <tr>
+                <td>Color:</td>
+                <td><div class="foo colr"></div></td>
+              </tr>
+              <tr>
+                <td>Quantity:</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr style="border-top: 1px solid #BDBDBD; margin-bottom: 10px;">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="font-size: 20px;">Subtotal</td>
+                <td style="color: #70c38d; font-size: 18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr style="margin-bottom: 0; margin-top: 0; border-top: 1px solid #9E9E9E;">
+        <div id="product-body">
+          <h4>Sayitloud Men's Round Neck Printed T-Shirt</h4>
+          <p>Sayitloud Corporation</p>
+          <table class="table" style="width: 60%;">
+            <tbody>
+              <tr>
+                <td>Size:</td>
+                <td>S</td>
+              </tr>
+              <tr>
+                <td>Color:</td>
+                <td><div class="foo colr"></div></td>
+              </tr>
+              <tr>
+                <td>Quantity:</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr style="border-top: 1px solid #BDBDBD; margin-bottom: 10px;">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="font-size: 20px;">Subtotal</td>
+                <td style="color: #70c38d; font-size: 18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr style="margin-bottom: 0; margin-top: 0; border-top: 1px solid #9E9E9E;">
+        <div class="text-left" id="total">
+          <table class="table">
+            <tr>
+              <td style="font-size: 30px;">Order Total</td>
+              <td style="color: #70c38d; font-size: 30px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1000</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- payment form ends -->
+
+</div>  
+
+
+<!-- footer begins -->
+
+  <div class="footer">
+    <p class="text-center">
+      <a class="button social" href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      <a class="button social" href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"  style="color: #5656d1;"></i>
+          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      <a class="button social" href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      <a class="button social" href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x" style="color: #e53e3e;"></i>
+          <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+    </p>
+    <nav class="nav text-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Contact</a>
+      <a href="#" class="nav-link">About Us</a>
+      <a href="#" class="nav-link">Cart</a>
+      <a href="#" class="nav-link">MAnufacturer's Portal</a>
+    </nav>
+  </div>
+
+<!-- footer ends -->
+
+
+
+</body>
+</html>
